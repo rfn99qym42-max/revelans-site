@@ -65,10 +65,14 @@ a {
 }
 
 .brand {
-    font-size: 1.25rem;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    color: var(--color-primary);
+    display: inline-flex;
+    align-items: center;
+}
+
+.brand__logo {
+    display: block;
+    height: 42px;
+    width: auto;
 }
 
 .primary-nav {
@@ -103,6 +107,16 @@ a {
 
 .primary-nav a:focus-visible::after,
 .primary-nav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.primary-nav a.is-active {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.primary-nav a.is-active::after {
     transform: scaleX(1);
     transform-origin: left;
 }
@@ -180,6 +194,29 @@ a {
     display: grid;
     gap: 1rem;
     color: var(--color-text);
+}
+
+.page-hero {
+    background: var(--color-surface);
+    padding: 5rem 0 3rem;
+    border-bottom: 1px solid rgba(30, 55, 101, 0.08);
+}
+
+.page-hero__content {
+    display: grid;
+    gap: 1.75rem;
+}
+
+.page-hero__title {
+    margin: 0;
+    font-size: clamp(2.25rem, 3vw, 3rem);
+    line-height: 1.1;
+    color: var(--color-primary-dark);
+}
+
+.page-hero__intro {
+    max-width: 60ch;
+    color: var(--color-muted);
 }
 
 .eyebrow {
@@ -293,6 +330,26 @@ a {
     color: var(--color-muted);
 }
 
+.card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 1.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.card__link::after {
+    content: ">";
+    font-size: 0.95rem;
+    transition: transform 0.2s ease;
+}
+
+.card__link:hover::after {
+    transform: translateX(2px);
+}
+
 .card--portfolio {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -386,6 +443,21 @@ a {
     gap: 1.25rem;
 }
 
+.contact__form--preview {
+    text-align: center;
+    justify-items: center;
+}
+
+.contact__form--preview p:not(.form-disclaimer) {
+    margin: 0;
+    color: var(--color-muted);
+}
+
+.contact__form--preview .button {
+    width: auto;
+    padding-inline: 2.25rem;
+}
+
 .form-field {
     display: flex;
     flex-direction: column;
@@ -419,6 +491,11 @@ textarea:focus {
     font-size: 0.8rem;
     color: rgba(18, 32, 53, 0.6);
     text-align: center;
+}
+
+.form-disclaimer a {
+    color: var(--color-primary);
+    font-weight: 600;
 }
 
 .site-footer {

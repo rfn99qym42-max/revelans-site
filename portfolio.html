@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Revelans | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header class="site-header" id="home">
+        <div class="container nav-wrapper">
+            <a class="brand" href="index.html">
+                <img class="brand__logo" src="assets/img/logo.png" alt="Revelans">
+            </a>
+            <button class="nav-toggle" aria-label="Hoofdmenu" aria-expanded="false" aria-controls="primary-navigation">
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+                <span class="nav-toggle__bar"></span>
+            </button>
+            <nav class="primary-nav" id="primary-navigation">
+                <a href="index.html">Home</a>
+                <a href="services.html">Diensten</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="about.html">Over Revelans</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container page-hero__content">
+                <p class="eyebrow">Portfolio</p>
+                <h1 class="page-hero__title">Digitale ervaringen die resultaat brengen</h1>
+                <p class="page-hero__intro">Een greep uit projecten waarin we strategie, design en technologie combineren om merken vooruit te helpen.</p>
+            </div>
+        </section>
+
+        <section class="section" aria-labelledby="portfolio-title">
+            <div class="container">
+                <div class="section__heading">
+                    <h2 id="portfolio-title">Cases & concepten</h2>
+                    <p>Ieder project kent zijn eigen doelen. We bouwen maatwerk oplossingen, altijd met aandacht voor performance en beleving.</p>
+                </div>
+                <div class="grid grid--portfolio">
+                    <article class="card card--portfolio">
+                        <span class="tag">Website Redesign</span>
+                        <h3>Studio Aurora</h3>
+                        <p>Van een verouderde site naar een visueel sterk platform met hogere conversie en betere performance.</p>
+                        <a class="card__link" href="contact.html">Meer over dit project</a>
+                    </article>
+                    <article class="card card--portfolio">
+                        <span class="tag">E-commerce</span>
+                        <h3>Nordic Supply</h3>
+                        <p>Conversion-first winkelervaring met duidelijke productpresentatie en een logisch bestelproces.</p>
+                        <a class="card__link" href="contact.html">Plan een demo</a>
+                    </article>
+                    <article class="card card--portfolio">
+                        <span class="tag">Landing Page</span>
+                        <h3>BrightHR Campagne</h3>
+                        <p>Campagnematige landingspagina gericht op leadgeneratie, inclusief snelle A/B-test opzet.</p>
+                        <a class="card__link" href="contact.html">Vraag de resultaten op</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--accent" aria-labelledby="cta-title">
+            <div class="container">
+                <div class="section__heading">
+                    <h2 id="cta-title">Klaar om jouw project te starten?</h2>
+                    <p>Vertel ons meer over je uitdaging. We denken graag mee over de stappen die nodig zijn om je merk digitaal te laten groeien.</p>
+                </div>
+                <a class="button button--primary" href="contact.html">Plan een gesprek</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer">
+            <p>&copy; <span id="current-year"></span> Revelans. Alle rechten voorbehouden.</p>
+            <a href="#home">Terug naar boven</a>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js" defer></script>
+</body>
+</html>

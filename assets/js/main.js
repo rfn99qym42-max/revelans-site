@@ -3,6 +3,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const primaryNav = document.querySelector(".primary-nav");
     const yearTarget = document.getElementById("current-year");
 
+    if (primaryNav) {
+        const normalizedCurrentPath = window.location.pathname.replace(/\/$/, "/index.html");
+        primaryNav.querySelectorAll("a").forEach((link) => {
+            const linkHref = link.getAttribute("href");
+            if (!linkHref) {
+                return;
+            }
+            const linkPath = new URL(linkHref, window.location.href).pathname.replace(/\/$/, "/index.html");
+            if (linkPath === normalizedCurrentPath) {
+                link.classList.add("is-active");
+            }
+        });
+    }
+
     if (yearTarget) {
         yearTarget.textContent = new Date().getFullYear();
     }

@@ -80,6 +80,89 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    const reviewsList = document.querySelector("[data-reviews-list]");
+    if (reviewsList) {
+        const emptyState = document.querySelector("[data-reviews-empty]");
+        const renderStars = (rating) => {
+            const maxStars = 5;
+            const safeRating = Math.max(0, Math.min(maxStars, Math.round(Number(rating) || 0)));
+            const filled = "★".repeat(safeRating);
+            const empty = "☆".repeat(maxStars - safeRating);
+            return `${filled}${empty}`;
+        };
+
+        fetch("assets/data/reviews.json")
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error("Kan reviews niet laden");
+                }
+                return response.json();
+            })
+            .then((reviews) => {
+                if (!Array.isArray(reviews) || reviews.length === 0) {
+                    if (emptyState) {
+                        emptyState.hidden = false;
+                    }
+                    return;
+                }
+
+                const fragment = document.createDocumentFragment();
+                reviews.forEach((review) => {
+                    const card = document.createElement("article");
+                    card.className = "review-card";
+
+                    const header = document.createElement("div");
+                    header.className = "review-card__header";
+
+                    const author = document.createElement("p");
+                    author.className = "review-card__author";
+                    if (review.url) {
+                        const link = document.createElement("a");
+                        link.href = review.url;
+                        link.target = "_blank";
+                        link.rel = "noopener";
+                        link.textContent = review.author || "Anonieme reviewer";
+                        author.appendChild(link);
+                    } else {
+                        author.textContent = review.author || "Anonieme reviewer";
+                    }
+
+                    const rating = document.createElement("span");
+                    rating.className = "review-card__rating";
+                    rating.setAttribute("aria-label", `Waardering ${review.rating || 0} van 5 sterren`);
+                    rating.textContent = renderStars(review.rating);
+
+                    header.appendChild(author);
+                    header.appendChild(rating);
+
+                    const text = document.createElement("p");
+                    text.className = "review-card__text";
+                    text.textContent = review.text || "";
+
+                    const meta = document.createElement("p");
+                    meta.className = "review-card__meta";
+                    if (review.date) {
+                        meta.textContent = `Google review • ${review.date}`;
+                    } else {
+                        meta.textContent = "Google review";
+                    }
+
+                    card.appendChild(header);
+                    card.appendChild(text);
+                    card.appendChild(meta);
+                    fragment.appendChild(card);
+                });
+
+                reviewsList.appendChild(fragment);
+            })
+            .catch(() => {
+                if (emptyState) {
+                    emptyState.hidden = false;
+                    emptyState.textContent = "Reviews konden niet geladen worden. Voeg ze toe in assets/data/reviews.json.";
+                }
+            });
+    }
+
     if (yearTarget) {
         yearTarget.textContent = new Date().getFullYear();
     }

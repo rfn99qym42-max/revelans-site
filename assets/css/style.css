@@ -458,6 +458,27 @@ a {
     padding-inline: 2.25rem;
 }
 
+.form-alert {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius-small);
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+.form-alert--success {
+    background: #d8f5df;
+    border: 1px solid #a3e4b1;
+    color: #166534;
+}
+
+.form-alert--error {
+    background: #fde4e4;
+    border: 1px solid #f8b4b4;
+    color: #7a1c1c;
+}
+
 .form-field {
     display: flex;
     flex-direction: column;

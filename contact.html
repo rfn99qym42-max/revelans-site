@@ -50,7 +50,9 @@
                         <a href="tel:+31636403380">+31 6 36 40 33 80</a>
                     </div>
                 </div>
-                <form class="contact__form">
+                <form class="contact__form" action="https://formsubmit.co/ajax/info@revelans.nl" method="POST" data-contact-form>
+                    <input type="hidden" name="_subject" value="Nieuw bericht via revelans.nl">
+                    <input type="hidden" name="_captcha" value="false">
                     <div class="form-field">
                         <label for="name">Naam</label>
                         <input id="name" type="text" name="name" placeholder="Voor- en achternaam" required>
@@ -63,6 +65,7 @@
                         <label for="project">Waar kunnen we mee helpen?</label>
                         <textarea id="project" name="project" rows="4" placeholder="Vertel kort over jouw project of uitdaging" required></textarea>
                     </div>
+                    <div class="form-alert" data-form-status aria-live="polite" hidden></div>
                     <button type="submit" class="button button--primary button--full">Verstuur bericht</button>
                     <p class="form-disclaimer">Door te verzenden ga je akkoord met de verwerking van je gegevens volgens de privacyverklaring.</p>
                 </form>
